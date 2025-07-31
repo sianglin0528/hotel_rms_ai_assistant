@@ -30,11 +30,13 @@ flowchart LR
     D --> E[Streamlit_儀表板]
     E --> F[RAG_問答助理_ChatGPT_API]
     F --> G[飯店經理決策]
+```
 
+---
 
+## 📂 專案結構
 
-📂 專案結構
-
+```
 hotel_rms_ai_assistant/
 ├─ data/                # 資料夾 (SQLite DB & CSV)
 │   ├─ hotel_data.db     # 資料庫
@@ -45,15 +47,29 @@ hotel_rms_ai_assistant/
 ├─ etl_pipeline.py       # 每日資料 ETL 與更新 DB
 ├─ requirements.txt      # 依賴套件
 └─ README.md
+```
 
+---
 
-⚡ 安裝與執行
+## ⚡ 安裝與執行
+
 1️⃣ 下載專案
+```bash
 git clone https://github.com/sianglin0528/hotel_rms_ai_assistant.git
 cd hotel_rms_ai_assistant
-2️⃣ 安裝
+```
+
+2️⃣ 安裝依賴
+```bash
 pip install -r requirements.txt
+```
+
 3️⃣ 初始化資料
+```bash
 python etl_pipeline.py
+```
+
 4️⃣ 啟動前端
+```bash
 streamlit run app.py
+```
