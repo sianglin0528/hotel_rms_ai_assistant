@@ -25,12 +25,18 @@ AI 驅動的飯店營運決策助理
 
 ```mermaid
 flowchart LR
-    A[📥 每日營運資料] --> B[🔄 ETL 清理 & 存入 SQLite]
-    B --> C[📈 Prophet 預測入住率]
-    C --> D[💡 動態策略建議生成]
-    D --> E[🎨 Streamlit 視覺化儀表板]
-    E --> F[🤖 RAG 問答助理 (ChatGPT API)]
-    F --> G[🏨 飯店經理決策]
+    A[ETL_Clean_Store_SQLite] --> B[TimeSeries_Forecast_Prophet]
+    B --> C[Dynamic_Strategy]
+    C --> D[Streamlit_Dashboard]
+    D --> E[RAG_QA_ChatGPT]
+    E --> F[Hotel_Management_Decision]
+
+# 流程說明
+- **A → B** 每日營運資料清理並存入 SQLite
+- **B → C** 使用 Prophet 預測未來入住率
+- **C → D** 生成動態建議策略
+- **D → E** 在 Streamlit 可視化並提供查詢
+- **E → F** RAG 問答輔助飯店經理決策
 
 📂 專案結構
 
