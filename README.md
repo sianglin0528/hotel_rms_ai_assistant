@@ -23,14 +23,19 @@
 ## 📂 專案結構
 
 hotel_rms_ai_assistant/
-├── data/                # 資料與 SQLite DB
-│   ├── hotel_data.db
-│   └── sample_data.csv
-├── utils/               # 資料前處理 & 建議產生函數
-├── app.py               # Streamlit 主程式
-├── etl_pipeline.py      # 每日資料 ETL 與更新 DB
-├── requirements.txt     # 依賴套件
-└── README.md
+├── 📂 data/                  # 資料與 SQLite DB
+│   ├── 🗄️ hotel_data.db
+│   └── 📄 sample_data.csv
+│
+├── 📂 utils/                 # 資料清理與建議生成模組
+│   ├── ⚙️ preprocess.py
+│   └── 💡 generate_suggestion.py
+│
+├── 🎨 app.py                 # Streamlit 主程式 (前端顯示與預測)
+├── 🔄 etl_pipeline.py        # 每日 ETL 與資料更新
+├── 📦 requirements.txt       # 依賴套件
+└── 📝 README.md              # 專案說明
+
 
 ## ⚡ 安裝與執行
 
@@ -47,3 +52,6 @@ python etl_pipeline.py
 
 # 啟動網站
 streamlit run app.py
+
+
+![App Screenshot](data/demo.png)
