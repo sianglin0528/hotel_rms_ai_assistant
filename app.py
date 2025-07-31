@@ -14,24 +14,23 @@ df, prophet_df = load_and_process_data()
 with st.expander("📄 查看最新原始資料"):
     st.dataframe(df.tail(10))
 
-# 2️⃣ Prophet 預測
+# 2️⃣ Prophet 預測未來 7 天入住率
 model = Prophet()
 model.fit(prophet_df)
 future = model.make_future_dataframe(periods=7)
 forecast = model.predict(future)
 
 st.subheader("📈 未來 7 天入住率預測")
-st.line_chart(forecast[["ds", "yhat"]].set_index("ds"))
 
-# 下載預測結果
-csv = forecast[["ds", "yhat"]]
-csv.columns = ["日期", "預測入住率"]
-st.download_button(
-    label="💾 下載預測結果 CSV",
-    data=csv.to_csv(index=False).encode("utf-8-sig"),
-    file_name="forecast.csv",
-    mime="text/csv",
-)
+# 取出最後 7 天的預測結果
+forecast_week = forecast[["ds", "yhat"]].tail(7)
+forecast_week.columns = ["日期", "預測入住率"]
+
+# 顯示表格
+st.dataframe(forecast_week)
+
+# 畫折線圖
+st.line_chart(forecast_week.set_index("日期"))
 
 # 3️⃣ AI 決策建議
 st.subheader("🤖 AI 決策建議")
