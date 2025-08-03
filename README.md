@@ -73,3 +73,5 @@ python etl_pipeline.py
 ```bash
 streamlit run app.py
 ```
+
+Streamlit Demo : https://hotel-rms0731.streamlit.app/
